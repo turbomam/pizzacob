@@ -4,8 +4,6 @@ onto_iri_base = https://raw.githubusercontent.com/turbomam/pizzacob/main/pizzaco
 
 # --annotation owl:imports "http://purl.obolibrary.org/obo/cob.owl" 
 pizzacob.owl:
-	# start with a fresh slate
-	rm -f catalog-v001.xml
 	curl https://protege.stanford.edu/ontologies/pizza/pizza.owl > $@
 	robot annotate \
 	--input pizzacob.owl \
@@ -26,3 +24,5 @@ label_rules: pizzacob.owl
 
 clean:
 	rm -f pizzacob.owl
+	# start with a really fresh slate
+	rm -f catalog-v001.xml
