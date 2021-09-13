@@ -1,6 +1,6 @@
 .PHONY: clean
 
-onto_iri_base = http://abc.xyz
+onto_iri_base = https://raw.githubusercontent.com/turbomam/pizzacob/main/pizzacob.owl
 
 pizzacob.owl:
 	curl https://protege.stanford.edu/ontologies/pizza/pizza.owl > $@
