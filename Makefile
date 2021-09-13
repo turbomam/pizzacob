@@ -5,7 +5,15 @@ onto_iri_base = https://raw.githubusercontent.com/turbomam/pizzacob/main/pizzaco
 # --annotation owl:imports "http://purl.obolibrary.org/obo/cob.owl" 
 pizzacob.owl:
 	curl https://protege.stanford.edu/ontologies/pizza/pizza.owl > $@
-	robot annotate --input pizzacob.owl --remove-annotations --ontology-iri $(onto_iri_base) --version-iri $(onto_iri_base) --output pizzacob.owl
+	robot annotate \
+	--input pizzacob.owl \
+	--remove-annotations \
+	--ontology-iri $(onto_iri_base) \
+	--version-iri $(onto_iri_base) \
+	--annotation dc11:description "COB-ified pizza ontology" \
+	--annotation dc:license "MIT" \
+	--annotation dc11:title "PizzaCOB" \
+	--output pizzacob.owl
 	
 reports/pizzacob.tsv: pizzacob.owl
 	robot report --input $< --output $@
