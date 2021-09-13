@@ -1,4 +1,4 @@
-.PHONY: clean
+.PHONY: clean label_rules
 
 onto_iri_base = https://raw.githubusercontent.com/turbomam/pizzacob/main/pizzacob.owl
 
@@ -17,6 +17,10 @@ pizzacob.owl:
 	
 reports/pizzacob.tsv: pizzacob.owl
 	robot report --input $< --output $@
+	
+label_rules: pizzacob.owl
+	robot query --input pizzacob.owl --update  alternify_non_english.ru --output pizzacob.owl
+	robot query --input pizzacob.owl --update delete_non_english.ru --output pizzacob.owl
 
 clean:
 	rm -f pizzacob.owl
