@@ -16,7 +16,7 @@ pizzacob.owl:
 	--output pizzacob.owl
 	
 reports/pizzacob.tsv: pizzacob.owl
-	robot report --input $< --output $@
+	robot report --input $< --output $@ --fail-on none
 	grep missing_superclass reports/pizzacob.tsv
 	
 label_rules: pizzacob.owl
