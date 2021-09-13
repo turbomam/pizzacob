@@ -20,8 +20,9 @@ reports/pizzacob.tsv: pizzacob.owl
 	grep missing_superclass reports/pizzacob.tsv
 	
 label_rules: pizzacob.owl
-	robot query --input pizzacob.owl --update  alternify_non_english.ru --output pizzacob.owl
+	robot query --input pizzacob.owl --update alternify_non_english.ru --output pizzacob.owl
 	robot query --input pizzacob.owl --update delete_non_english.ru --output pizzacob.owl
+	robot query --input pizzacob.owl --update rhs_to_label.ru --output pizzacob.owl
 
 clean:
 	rm -f pizzacob.owl
