@@ -1,6 +1,6 @@
-- Don't forget FOODON (for aliging the Pizza Ontology's `Food`)
-- Check discussion about placement of `Country`
-- No "obsolete class" in COB
+- Don't forget FOODON (for aliging the Pizza Ontology's 'Food')
+- Check discussion about placement of 'Country'
+- No 'obsolete class' in COB
 - `robot reason` and `robot reduce` are indeed useful in addition to `robot report`. What's the propper order? relax, reduce, report?
     - much of this is taken care of with `make release` in the ODK.
 
