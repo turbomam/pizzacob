@@ -84,4 +84,3 @@ Random thoughts
 - COB terms can generally be pasted into a web browser to get annotations from OntoBee
 
 https://github.com/OBOFoundry/COB/blob/master/src/ontology/components/cob-to-external.owl not really necessary any more due to "COB rewired release" http://purl.obolibrary.org/obo/cob/releases/2021-09-11/cob-native.owl  It may even complicate things. But it does provide some good hints if you are already familiar with pre-COB OBO conventions.
-![image](https://user-images.githubusercontent.com/25185273/133268432-8b970d8d-146f-44e5-bde4-a65c86c26836.png)
