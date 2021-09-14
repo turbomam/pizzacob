@@ -2,7 +2,10 @@
 
 onto_iri_base = https://raw.githubusercontent.com/turbomam/pizzacob/main/pizzacob.owl
 
-# --annotation owl:imports "http://purl.obolibrary.org/obo/cob.owl" 
+# how to do
+#   --annotation owl:imports "http://purl.obolibrary.org/obo/cob.owl"
+#   with robot?
+#   do it manually for now
 pizzacob.owl:
 	curl https://protege.stanford.edu/ontologies/pizza/pizza.owl > $@
 	robot annotate \
@@ -15,7 +18,7 @@ pizzacob.owl:
 	--annotation dc11:title "PizzaCOB" \
 	--output pizzacob.owl
 	
-reports/pizzacob.tsv: pizzacob.owl
+pizzacob.tsv: pizzacob.owl
 	robot report --input $< --output $@ --fail-on none
 	grep missing_superclass reports/pizzacob.tsv
 	
@@ -26,5 +29,5 @@ label_rules: pizzacob.owl
 
 clean:
 	rm -f pizzacob.owl
-	# start with a really fresh slate
+	# start with an empty catalog
 	rm -f catalog-v001.xml
