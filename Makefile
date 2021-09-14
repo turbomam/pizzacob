@@ -20,7 +20,7 @@ pizzacob.owl:
 	
 pizzacob.tsv: pizzacob.owl
 	robot report --input $< --output $@ --fail-on none
-	grep missing_superclass reports/pizzacob.tsv
+	grep missing_superclass pizzacob.tsv
 	
 label_rules: pizzacob.owl
 	robot query --input pizzacob.owl --update alternify_non_english.ru --output pizzacob.owl
