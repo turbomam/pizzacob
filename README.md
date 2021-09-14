@@ -1,5 +1,7 @@
 # pizzacob
-What happens when you add COB as an upper ontology to pizza.owl?
+What happens when you add [COB](https://github.com/OBOFoundry/COB) as an upper ontology to [pizza.owl](https://github.com/owlcs/pizza-ontology)?
+
+We're using pizza.owl here to illustrate what might happen if you build a data-driven ontology with `robot template` or inherit an ontology from someone who's more of a subject matter exert than an ontologist.
 
 - git-clone or fetch/pull this repo
 - `make clean`
@@ -43,14 +45,15 @@ INFO	missing_superclass	http://www.co-ode.org/ontologies/pizza/pizza.owl#Vegetar
 ```
 
 - add `owl:imports http://purl.obolibrary.org/obo/cob.owl` to `pizzacob.owl` in Protege or your favorite text editor **and save**
-
+    - could take a quick look at the classes and properties before and after adding the import diretive
+    - what's `IAO_0000116`? Rember, COB is a work in progress. How could wwe get some annotations for this term? (See below!)
 - manually place the classes with no *asserted* superclass under some COB class
-    - may require some thought or discussion
+    - May require some pondering, research or discussion
+    - Look at usages of parents and children. Add comments before deleting any assertions. Before deleting any classes, add _ontology_ comments
     - _DomainThing/Country -> Geographical location_?
+        - Why can't it just be dragged into place?
     - _ValuePartition -> characteristic_? or _Spiciness -> characteristic_ and then delete _ValuePartition_?
     - _DomainThing/Food -> material entity_?
-        - Look at usages of parents and children. Add comments before deleting any assertions. Before deleting any classes, add _ontology_ comments
-
 - rerun `make pizzacob.tsv`
     -  Have the missing asserted superclasses all been resolved?
         -  No. The Pizza ontology uses lots of advanced OWL features. Some of the classes only have asserted _equivalent classes_. That's legal and useful for inferencing, but some OWL and RDF tools have limited support for equivalent classes. `robot` is providing info about these classes in case the ontology author just forgot to assert superclasses. `robot relax` can add weaker superclasses derrived from equivalent class assertions. Equivalent classes are not deleted. See the `robot` docuemtnation for optionally following relax with reduce.
